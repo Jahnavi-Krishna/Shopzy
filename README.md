@@ -1,2 +1,0 @@
-# Shopzy
- Capstone Project (Prograd)
