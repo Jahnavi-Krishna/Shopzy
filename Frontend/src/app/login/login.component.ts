@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {CheckboxModule} from 'primeng/checkbox';
 
@@ -10,9 +11,15 @@ export class LoginComponent implements OnInit {
 
   selectedValues: string[] = [];
   
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
+  submit(){
+    var username = (<HTMLInputElement>document.getElementById("username")).value;
+    var password = (<HTMLInputElement>document.getElementById("password")).value;
+    console.log(username, password);
+    
+  }
 }
