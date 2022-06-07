@@ -1,0 +1,25 @@
+<div id="bgd">
+    <div style="height:50px">
+        <app-header></app-header>
+    </div>
+    <ul id="grids">
+        <li class="sidebar">
+            Search
+            <input type="radio" name="" value="Sort">Sort
+            <input type="radio" name="" value="Filter">filter
+        </li>
+        <li>
+            <ul>
+                <li class="products" *ngFor="let product of products">
+                    <div class="card">
+                        <img src="{{product.image}}" class="img" /> <br>
+                        <span><b>{{product.name}}</b></span> <br>
+                        <span>Price: <b>Rs.{{product.price}}</b></span> <br>
+                        <span>{{product.description}}</span> <br>
+                        <button (click)="addToCart(product._id)">Add to Cart</button>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

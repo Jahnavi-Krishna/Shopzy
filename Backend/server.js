@@ -61,7 +61,7 @@ app.post('/signup/in', async (req,res) => {
     }
 })
 
-app.get('/products/in', async (res) => {
+app.post('/products/in', async (req,res) => {
     const client = await mongoClient.connect(dburl);
     try{
         let db = await client.db('Shopzy');
@@ -75,4 +75,52 @@ app.get('/products/in', async (res) => {
     }
 })
     
+app.post('/add-to-cart/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {id, productId} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+        let q = await db.collection('Cart').findOne({user_id: id});
+        if(q === null){
+            await db.collection('Cart').insertOne({user_id: id, items: []});
+        }
+        q = await db.collection('Cart').findOne({user_id: id});
+        items = q["items"];
+        let i;
+        for(i=0;i<items.length;i++){
+            if(items[i].productId == productId){
+                break;
+            }
+        }
+        if(i<items.length) {
+            items[i].count++;
+        }
+        else{
+            items.push({productId:productId,count:1});
+        }
+        await db.collection('Cart').updateOne({user_id: id},{$set: {items:items}});
+        console.log(q)
+        res.json({"cart": q});
+
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+
+app.post('/cart/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {id} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+        let q = await db.collection('Cart').findOne({user_id: id});
+        res.json(q);
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+   
 app.listen(3000,() => { console.log('Server running...');})

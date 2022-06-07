@@ -8,19 +8,31 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { CartComponent } from './cart/cart.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
+    HeaderComponent,
+    CartComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
-    CheckboxModule
+    CheckboxModule,
+    DynamicDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

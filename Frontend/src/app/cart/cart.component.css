@@ -1,0 +1,34 @@
+.center{
+    padding-top: calc(50vh - 200px);
+    padding-left: calc(50vw - 200px);
+}
+
+.card{
+    background-color: #fff;
+    height: 400px;
+    width: 400px;
+    border-radius:20px;
+    padding: 3%;
+}
+
+.cardTop{
+    list-style-type: none; 
+    overflow: hidden;
+}
+
+#cardTop > li{
+    display:inline-block;
+}
+
+#right{
+    float:right;
+}
+
+.deleteItem{
+    border-radius: 5px;
+    background-color: red;
+}
+
+#checkout{
+    float:right;
+}

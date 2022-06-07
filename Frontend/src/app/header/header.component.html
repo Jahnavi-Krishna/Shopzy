@@ -1,0 +1,13 @@
+<div id="head">
+    <ul id="nav">
+        <li class="left"><img src="assets/logo.png" id="logo"></li>
+        <li class="left" [routerLink]="['/home']"><span id="title"><strong>Shopzy</strong></span></li>
+        <li class="right" [routerLink]="['/login']"><span>Sign Out</span></li>
+        <li class="right"></li>
+        <li class="right" (click)="show()"><span>My Cart (<span class="total-count"></span>)</span></li>
+        <li class="right" [routerLink]="['/home']"><span>Home</span></li>    
+    </ul>
+</div>
+<div id="overlay">
+    <app-cart></app-cart>
+</div>

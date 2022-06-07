@@ -1,0 +1,22 @@
+<div class="center">
+    <div class="card">
+        <ul class="cardTop">
+            <li><span><b>My Cart</b></span></li>
+            <li id="right"><button (click)="close()">X</button></li>
+        </ul>
+        <hr>
+        <div class="items">
+            <div class="item" *ngFor="let item of items">
+                <span>{{getProduct(item.productId).name}}   </span>
+                <span>(Rs.{{getProduct(item.productId).price}}) </span>
+                <span><button (click)="addToCart(item.productId)">+</button>{{item.count}}<button (click)="subtractFromCart()">-</button></span>
+                <span><button class="deleteItem" data-name="">X</button>     </span>
+                <span>Rs.{{getProduct(item.productId).price * item.count}}</span>
+                <hr>
+            </div>
+        </div>
+        <span><b>Total Price: Rs.</b></span>
+        <hr>
+        <button id="checkout">Checkout</button>
+    </div>
+</div>
