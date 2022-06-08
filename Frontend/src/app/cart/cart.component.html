@@ -9,13 +9,13 @@
             <div class="item" *ngFor="let item of items">
                 <span>{{getProduct(item.productId).name}}   </span>
                 <span>(Rs.{{getProduct(item.productId).price}}) </span>
-                <span><button (click)="addToCart(item.productId)">+</button>{{item.count}}<button (click)="subtractFromCart()">-</button></span>
-                <span><button class="deleteItem" data-name="">X</button>     </span>
+                <span><button (click)="addToCart(item.productId)">+</button>    {{item.count}}  <button (click)="subtractFromCart(item.productId)">-</button>   </span>
+                <span><button class="deleteItem" (click)="removeFromCart(item.productId)">X</button>     </span>
                 <span>Rs.{{getProduct(item.productId).price * item.count}}</span>
                 <hr>
             </div>
         </div>
-        <span><b>Total Price: Rs.</b></span>
+        <span><b>Total Price: Rs.{{total}}</b></span>
         <hr>
         <button id="checkout">Checkout</button>
     </div>

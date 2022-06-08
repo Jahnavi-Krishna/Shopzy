@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   addToCart(productId : string) : void {
-    this.http.post<any>("http://localhost:3000/add-to-cart/in",{id: "629d8a3a3e8818d4fae68385", productId: productId}, {headers: { 'Content-Type': "application/json" } }).subscribe((response) => {
+    this.http.post<any>("http://localhost:3000/add-to-cart/in",{email: localStorage.getItem("userEmail"), productId: productId}, {headers: { 'Content-Type': "application/json" } }).subscribe((response) => {
       console.log(response);
   });
 } 

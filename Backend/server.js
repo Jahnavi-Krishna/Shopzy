@@ -77,14 +77,14 @@ app.post('/products/in', async (req,res) => {
     
 app.post('/add-to-cart/in', async (req,res) => {
     const client = await mongoClient.connect(dburl);
-    const {id, productId} = req.body;
+    const {email, productId} = req.body;
     try{
         let db = await client.db('Shopzy');
-        let q = await db.collection('Cart').findOne({user_id: id});
+        let q = await db.collection('Cart').findOne({email: email});
         if(q === null){
-            await db.collection('Cart').insertOne({user_id: id, items: []});
+            await db.collection('Cart').insertOne({email: email, items: []});
         }
-        q = await db.collection('Cart').findOne({user_id: id});
+        q = await db.collection('Cart').findOne({email: email});
         items = q["items"];
         let i;
         for(i=0;i<items.length;i++){
@@ -98,7 +98,72 @@ app.post('/add-to-cart/in', async (req,res) => {
         else{
             items.push({productId:productId,count:1});
         }
-        await db.collection('Cart').updateOne({user_id: id},{$set: {items:items}});
+        await db.collection('Cart').updateOne({email: email},{$set: {items:items}});
+        console.log(q)
+        res.json({"cart": q});
+
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+
+app.post('/subtract-from-cart/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {email, productId} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+        let q = await db.collection('Cart').findOne({email: email});
+        if(q === null){
+            await db.collection('Cart').insertOne({email: email, items: []});
+        }
+        q = await db.collection('Cart').findOne({uemail: email});
+        items = q["items"];
+        let i;
+        for(i=0;i<items.length;i++){
+            if(items[i].productId == productId){
+                break;
+            }
+        }
+        if(i<items.length) {
+            items[i].count--;
+            if(items[i].count == 0) {
+                items.splice(i,1);
+            }
+            await db.collection('Cart').updateOne({email: email},{$set: {items:items}});
+        }
+        console.log(q)
+        res.json({"cart": q});
+
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+
+app.post('/remove-from-cart/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {email, productId} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+        let q = await db.collection('Cart').findOne({email: email});
+        if(q === null){
+            await db.collection('Cart').insertOne({email: email, items: []});
+        }
+        q = await db.collection('Cart').findOne({email: email});
+        items = q["items"];
+        let i;
+        for(i=0;i<items.length;i++){
+            if(items[i].productId == productId){
+                break;
+            }
+        }
+        if(i<items.length) {
+            items.splice(i,1);
+            await db.collection('Cart').updateOne({email: email},{$set: {items:items}});
+        }
         console.log(q)
         res.json({"cart": q});
 
@@ -111,10 +176,10 @@ app.post('/add-to-cart/in', async (req,res) => {
 
 app.post('/cart/in', async (req,res) => {
     const client = await mongoClient.connect(dburl);
-    const {id} = req.body;
+    const {email} = req.body;
     try{
         let db = await client.db('Shopzy');
-        let q = await db.collection('Cart').findOne({user_id: id});
+        let q = await db.collection('Cart').findOne({email: email});
         res.json(q);
     }catch(err){
         console.log(err);
@@ -122,5 +187,39 @@ app.post('/cart/in', async (req,res) => {
         client.close();
     }
 })
-   
+
+app.post('/feedback/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {userEmail, feedback} = req.body;
+    console.log(userEmail, feedback);
+    try{
+        let db = await client.db('Shopzy');
+            await db.collection('Feedback').insertOne({email : userEmail, feedback: feedback});
+            res.json({
+                msg: "Feedback Received"
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+  
+app.get('/feedback/all', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    try{
+        let db = await client.db('Shopzy');
+        var data = await db.collection('Feedback').find().toArray();
+            res.json({
+                data
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+
 app.listen(3000,() => { console.log('Server running...');})

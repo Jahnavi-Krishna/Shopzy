@@ -3,8 +3,10 @@
         <li class="left"><img src="assets/logo.png" id="logo"></li>
         <li class="left" [routerLink]="['/home']"><span id="title"><strong>Shopzy</strong></span></li>
         <li class="right" [routerLink]="['/login']"><span>Sign Out</span></li>
-        <li class="right"></li>
-        <li class="right" (click)="show()"><span>My Cart (<span class="total-count"></span>)</span></li>
+        <li class="right" [routerLink]="['/admin']" id="admin"><span>Admin</span></li>
+        <!-- <li class="right" (click)="show()"><span>My Cart ({{itemCount()}})</span></li> -->
+        <li class="right" (click)="show()"><span>My Cart ()</span></li>
+
         <li class="right" [routerLink]="['/home']"><span>Home</span></li>    
     </ul>
 </div>

@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import { CartComponent } from './cart/cart.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     HomeComponent,
     HeaderComponent,
     CartComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
