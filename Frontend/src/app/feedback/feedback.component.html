@@ -1,13 +1,13 @@
 <div (click)="giveFeedback()">
-    <img src="https://media.istockphoto.com/vectors/feedback-speech-bubble-icon-vector-design-vector-id1276662661?k=20&m=1276662661&s=612x612&w=0&h=d2re5X_dNTxZRBDGaqKR9mMuLZ2VcmtN1-ZrkylxX_Y=" alt="" class="feedback-img">
+    <img src="https://toppng.com/uploads/preview/communication-icon-communication-icon-1156292399373tmx1iowf.png" alt="" class="feedback-img">
 </div>
 <div id="pop01" class="modal">
   
         <form class="modal-content animate pop1" method="post">
           <div class="imgcontainer">
-            <h2>Did you like this webpage?</h2>
-            <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3>
-            <span onclick="document.getElementById('pop01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <h2 class="orange">We would love your Feedback!</h2>
+            <h3 style="color: rgba(29, 29, 29, 0.6)">Did you like our website?</h3>
+            <span (click)="close()" class="close" title="Close Modal">&times;</span>
           </div>
       
           <div class="container">
@@ -30,24 +30,24 @@
 <div id="pop02" class="modal">
     <form class="modal-content animate pop2" method="post">
         <div class="imgcontainer">
-            <h2>Happy to hear that :)</h2>
-            <h2>What did you like the most in this webpage?</h2>
-            <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3>
+            <h2 class="orange">Happy to hear that :)</h2>
+            <h2 class="orange">What did you like the most in this webpage?</h2>
+            <!-- <h3 style="color: rgba(29, 29, 29, 0.6)">Help us improve your experience</h3> -->
             <span onclick="document.getElementById('pop02').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
         <div class="container" id="pop-con">
             <label class="container-check" >
-            <input type="checkbox" id="pop-chk-y0" value="Website design">Website design
+            <input type="checkbox" id="pop-chk-y0" value="Website Design">Website Design
             <span class="checkmark"></span>
             </label>
             <br>
             <label class="container-check" >
-            <input type="checkbox" id="pop-chk-y1" value="User experience">User experience
+            <input type="checkbox" id="pop-chk-y1" value="User Experience">User Experience
             <span class="checkmark"></span>
             </label>
             <br>
             <label class="container-check">
-            <input type="checkbox"  id="pop-chk-y2" value="Payment Gateway"> Payment Gateway
+            <input type="checkbox"  id="pop-chk-y2" value="Animation Effects">Animation Effects
             <span class="checkmark"></span>
             </label>
             <br>
@@ -58,17 +58,17 @@
             </label>
             <br>
             <label class="container-check">
-            <input type="checkbox"  id="pop-chk-y4" value="Security">Security
+            <input type="checkbox"  id="pop-chk-y4" value="Ease of use">Ease of use
             <span class="checkmark"></span>
             </label>
     
             <div class="slidecontainer">
-            <h3>Rate us:</h3>
-            <input type="range" min="1" max="10" value="5" class="slider-range" id="rating-y">
-            <h3> <span id="rating-value-y"></span></h3>
+              <!-- <h3>Rate us:</h3> -->
+              <h3>Rating : <span id="rating-value-y">{{ rating }}</span></h3>
+              <input type="range" min="1" max="10" value="5" class="slider-range" id="rating-y" (input)="changeRating()">
             </div>
         
-            <div class="container" style="background-color:#f1f1f1">
+            <div class="container">
                 <button type="button" (click)="next('y')" class="cancelbtn-nxt">Next</button>
             </div>
         </div>
@@ -77,45 +77,46 @@
 <div id="pop04" class="modal">
     <form class="modal-content animate pop2" method="post">
         <div class="imgcontainer">
-            <h2>Sorry to hear that :(</h2>
-            <h2>What didn't you like in this webpage?</h2>
-            <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3>
+            <h2 class="orange">Sorry to hear that :(</h2>
+            <h2 class="orange">What didn't you like in this webpage?</h2>
+            <!-- <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3> -->
             <span onclick="document.getElementById('pop04').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
         <div class="container" id="pop-con">
             <label class="container-check" >
-            <input type="checkbox" id="pop-chk-n0" value="Bad Website design">Bad Website design
+            <input type="checkbox" id="pop-chk-n0" value="Bad Website Design">Bad Website Design
             <span class="checkmark"></span>
             </label>
             <br>
             <label class="container-check" >
-            <input type="checkbox" id="pop-chk-n1" value="Worst User experience">Worst User experience
+            <input type="checkbox" id="pop-chk-n1" value="Worst User Experience">Bad User Experience
             <span class="checkmark"></span>
             </label>
             <br>
             <label class="container-check">
-            <input type="checkbox"  id="pop-chk-n2" value="Payment Gateway Dint Work">Payment Gateway Dint Work
+            <input type="checkbox"  id="pop-chk-n2" value="Item not found">Couldn't Find Desired Item
             <span class="checkmark"></span>
             </label>
             <br>
               
             <label class="container-check">
-            <input type="checkbox"  id="pop-chk-n3" value="Experected Better Features">Experected Better Features
+            <input type="checkbox"  id="pop-chk-n3" value="Experected Better Features">Expected Better Features
             <span class="checkmark"></span>
             </label>
             <br>
             <label class="container-check">
-            <input type="checkbox"  id="pop-chk-n4" value="Poor Security">Poor Security
+            <input type="checkbox"  id="pop-chk-n4" value="Payment Gateway Dint Work">Payment Gateway Dint Work
             <span class="checkmark"></span>
             </label>
     
             <div class="slidecontainer">
-            <h3>Rate us:</h3>
-            <input type="range" min="1" max="10" value="5" class="slider-range" id="rating-n">
-            <h3>Rating: <span id="rating-value-n"></span></h3>
+            <!-- <h3>Rate us:</h3> -->
+            <!-- <h3>Rating : <span id="rating-value-y">{{ rating }}</span></h3> -->
+            <h3>Rating: <span id="rating-y">{{ rating2 }}</span></h3>
+            <input type="range" min="1" max="10" value="5" class="slider-range" id="rating-n" (input)="changeRating2()">
             </div>
         
-            <div class="container" style="background-color:#f1f1f1">
+            <div class="container">
                 <button type="button" (click)="next('n')" class="cancelbtn-nxt">Next</button>
             </div>
         </div>
@@ -124,14 +125,17 @@
 <div id="pop03" class="modal">
     <form class="modal-content animate pop3" method="post">
       <div class="imgcontainer">
-        <h2>What feedback would you like to share?</h2>
-        <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3>
+        <br>
+        <!-- <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3> -->
+        <h2 class="orange">What could we have done to make your experience better?</h2>
         <span onclick="document.getElementById('pop03').style.display='none'" class="close" title="Close Modal">&times;</span>
       </div>
       <div class="container feedtxt">
-        <textarea name="feedback-msg" id="feedback-msg" cols="64" rows="5" placeholder="Tell us your feedback..."></textarea>
+        <h3>Name : </h3><textarea name="name" id="name" cols="64" rows="1" placeholder="Enter your Name"></textarea>
+        <br>
+        <h3>Comments :</h3><textarea name="feedback-msg" id="feedback-msg" cols="64" rows="5" placeholder="Tell us your feedback"></textarea>
       </div>
-      <div class="container" style="background-color:#f1f1f1">
+      <div class="container">
         <button type="button" (click)="submit()" class="cancelbtn-nxt">Submit</button>
       </div>
     </form>

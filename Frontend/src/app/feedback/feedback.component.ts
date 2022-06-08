@@ -11,22 +11,25 @@ import { Router } from '@angular/router';
 })
 export class FeedbackComponent implements OnInit {
   public feedbackGiven: boolean = false;
-  public logedIn: boolean = true;
-  public role: boolean = false;
+  // public logedIn: boolean = true;
+  // public role: boolean = false;
   public opted: boolean = false;
   feedBack: { [index: string]: any } = {}
   ask: any;
+  public rating: any;
+  public rating2: any;
 
   constructor(private router: Router, private http: HttpClient) { }
   ngOnInit(): void {
     // this.data.currentStatus.subscribe(msg => this.logedIn = msg);
     // this.data.currentlogin.subscribe(msg => this.role = msg);
     this.ask = setInterval(() => {
-      if (this.logedIn && !this.opted && !this.role) {
+      if (!this.opted) {
         document.getElementById('pop01')!.style.display = 'block';
       }
     }, 20000);
   }
+
   giveFeedback() {
     document.getElementById('pop01')!.style.display = 'block';
   }
@@ -72,5 +75,18 @@ export class FeedbackComponent implements OnInit {
       //       clearInterval(this.ask);
       //     }
       //   })
+    }
+
+    changeRating() {
+      console.log((<HTMLInputElement>document.getElementById(`rating-y`)).value);
+      this.rating = (<HTMLInputElement>document.getElementById(`rating-y`)).value;
+    }
+    changeRating2() {
+      console.log((<HTMLInputElement>document.getElementById(`rating-n`)).value);
+      this.rating2 = (<HTMLInputElement>document.getElementById(`rating-n`)).value;
+    }
+
+    close(){
+      (<HTMLInputElement>document.getElementById('pop01')).style.display='none';
     }
 }

@@ -1,8 +1,13 @@
+.orange{
+  color: #fa6900;
+}
+
 .feedback-img{
     width: 12%;
-    /* margin-bottom: -100px; */
+    position: fixed;
+    bottom: 0;
 }
-#feedback-con{
+/* #feedback-con{
     position: fixed;
     z-index: 1;
     top: 635px;
@@ -10,8 +15,9 @@
 }
 #feedback-con:hover{
   opacity: 0.85;
-}
-#feedback-msg{
+} */
+#feedback-msg, #name{
+  padding: 10px;
   font-size: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   resize: none;
@@ -20,7 +26,7 @@
   align-items: center;
   align-content: center;
 }
-input[type=text], input[type=password]{
+input[type=text]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -51,22 +57,22 @@ input[type=text], input[type=password]{
     padding: 10px 18px;
     background-color: #f44336;
   }
-  .signupbtn{
+  /* .signupbtn{
     width: auto;
     padding: 10px 18px;
     background-color: rgb(0,150,200);
-  }
+  } */
   
   .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
   }
-  
+/*   
   img.avatar {
     width: 30%;
     border-radius: 50%;
-  }
+  } */
   
   .container {
     padding: 16px;
@@ -78,11 +84,11 @@ input[type=text], input[type=password]{
     color: blue;
     font-size: large;
   }
-  .psw:hover{
+  /* .psw:hover{
     cursor: pointer;
     opacity: 60%;
   }
-  
+   */
   .modal {
     display: none; 
     position: fixed; 
@@ -144,7 +150,7 @@ input[type=text], input[type=password]{
        width: 100%;
     }
   }
-.switch {
+/* .switch {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -154,7 +160,7 @@ input[type=text], input[type=password]{
   opacity: 0;
   width: 0;
   height: 0;
-}
+} */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -178,10 +184,10 @@ input[type=text], input[type=password]{
   transition: .4s;
 }
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #fa6900;
 }
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #fa6900;
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
@@ -225,9 +231,9 @@ input:checked + .slider:before {
   background-color: #ccc;
 }
 .container-check input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #fa6900;
 }
-.checkmark:after {
+ .checkmark:after {
   content: "";
   position: absolute;
   display: none;
@@ -245,7 +251,7 @@ input:checked + .slider:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-}
+} 
 .slider-range {
   -webkit-appearance: none;
   width: 100%;
@@ -253,7 +259,7 @@ input:checked + .slider:before {
   border-radius: 5px;  
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -264,17 +270,16 @@ input:checked + .slider:before {
   height: 25px;
   border-radius: 50%; 
   /* background: #04AA6D; */
-  background:#2196F3 ;
+  background:#fa6900 ;
   cursor: pointer;
 }
-.slider-range::-moz-range-thumb {
+/* .slider-range::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  /* background: #04AA6D; */
-  background: #2196F3;
+  background: #fa6900;
   cursor: pointer;
-}
+} */
 .container-radio {
   display: block;
   position: relative;
@@ -301,12 +306,12 @@ input:checked + .slider:before {
   background-color: #eee;
   border-radius: 50%;
 }
-.container-radio:hover input ~ .checkmark {
+/* .container-radio:hover input ~ .checkmark {
   background-color: #ccc;
 }
 .container-radio input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
+  background-color: #fa6900;
+} */
 .checkmark:after {
   content: "";
   position: absolute;
@@ -334,7 +339,9 @@ input:checked + .slider:before {
 .pop3{
   width: 700px;
   margin-top: 15%;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .cancelbtn-nxt{
-  background-color: #2196F3;
+  background-color: #fa6900;
 }

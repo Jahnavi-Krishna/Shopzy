@@ -118,7 +118,7 @@ app.post('/subtract-from-cart/in', async (req,res) => {
         if(q === null){
             await db.collection('Cart').insertOne({email: email, items: []});
         }
-        q = await db.collection('Cart').findOne({uemail: email});
+        q = await db.collection('Cart').findOne({email: email});
         items = q["items"];
         let i;
         for(i=0;i<items.length;i++){
