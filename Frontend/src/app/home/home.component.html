@@ -2,26 +2,51 @@
     <div style="height:50px">
         <app-header></app-header>
     </div>
-    <ul id="grids">
-        <li class="sidebar">
-            Search
-            <input type="radio" name="" value="Sort">Sort
-            <input type="radio" name="" value="Filter">filter
-        </li>
-        <li>
-            <ul>
-                <li class="products" *ngFor="let product of products">
+    <table>
+        <td class="sidebar">
+            <tr>Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()" /></tr>
+            <tr>Sort by price :<br>
+                <input name="sort" type="radio" (input)="this.api.sortProducts(true)">Increasing <br>
+                <input name="sort" type="radio" (input)="this.api.sortProducts(false)">Decreasing
+            </tr>
+            <tr>Filter by category :<br>
+                <div *ngFor="let category of this.api.category">
+                    <input name="filter" type="checkbox" (change)="filter(category, $any($event.target).checked)">{{category}}<br>
+                </div>
+            </tr>
+            <tr><button>Clear All</button></tr>
+            <!-- <ul class="sidebar">
+                Search
+                <li><input type="radio" name="" value="Sort">Sort</li>
+                <li><input type="radio" name="" value="Filter">filter</li>
+            </ul> -->
+        </td>
+        <td>
+            <ul class="main">
+                <!-- <li class="products" *ngFor="let product of this.api.products">
                     <div class="card">
                         <img src="{{product.image}}" class="img" /> <br>
                         <span><b>{{product.name}}</b></span> <br>
                         <span>Price: <b>Rs.{{product.price}}</b></span> <br>
                         <span>{{product.description}}</span> <br>
-                        <button (click)="addToCart(product._id)">Add to Cart</button>
+                        <button (click)="this.api.addToCart(product._id)">Add to Cart</button>
+                    </div>
+                </li> -->
+                <li class="products" *ngFor="let product of this.api.products">
+                    <div class="card" id="card-{{product._id}}" (mouseenter)="hoverOn(product._id)" (mouseleave)="hoverOff(product._id)">
+                        <img src="{{product.image}}" class="img"/>
+                        <h3>{{product.name}}</h3>
+                        <div class="overlay" id="overlay-{{product._id}}">
+                            <h3>{{product.name}}</h3>
+                            <p>Price: <b>Rs.{{product.price}}</b></p>
+                            <p>{{product.description}}</p> 
+                            <button (click)="this.api.addToCart(product._id)">Add to Cart</button>
+                        </div>
                     </div>
                 </li>
             </ul>
-        </li>
-    </ul>
+        </td>
+    </table>
 </div>
 
 <app-feedback></app-feedback>

@@ -5,7 +5,7 @@
         <li class="right" [routerLink]="['/login']"><span>Sign Out</span></li>
         <li class="right" [routerLink]="['/admin']" id="admin"><span>Admin</span></li>
         <!-- <li class="right" (click)="show()"><span>My Cart ({{itemCount()}})</span></li> -->
-        <li class="right" (click)="show()"><span>My Cart ()</span></li>
+        <li class="right" (click)="show()"><span>My Cart ({{ this.api.count }})</span></li>
 
         <li class="right" [routerLink]="['/home']"><span>Home</span></li>    
     </ul>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {DialogService} from 'primeng/dynamicdialog';
 import { CartComponent } from '../cart/cart.component';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,13 @@ import { CartComponent } from '../cart/cart.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialogService: DialogService, public http: HttpClient) { }
+
+
+  constructor(public dialogService: DialogService, public http: HttpClient, public api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getProducts();
+    this.api.getItems();
     if(localStorage.getItem('role') === 'ADMIN') {
       (<HTMLInputElement>document.getElementById("admin")).style.display = "block";
     }

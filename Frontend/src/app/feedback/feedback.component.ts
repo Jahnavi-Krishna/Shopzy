@@ -27,7 +27,7 @@ export class FeedbackComponent implements OnInit {
       if (!this.opted) {
         document.getElementById('pop01')!.style.display = 'block';
       }
-    }, 20000);
+    }, 50000);
   }
 
   giveFeedback() {

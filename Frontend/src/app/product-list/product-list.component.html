@@ -1,2 +1,20 @@
 <h2>Products</h2>
 <hr>
+<button>+ Add</button> <br>
+Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()"/><br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let product of this.api.products">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.type}}</td>
+            <td>{{product.description}}</td>
+            <td><button>Edit</button><button (click)="this.api.deleteProduct(product._id)">Delete</button></td>
+        </tr>
+    </table>

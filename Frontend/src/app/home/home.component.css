@@ -10,7 +10,68 @@ ul {
     list-style-type: none;
 }
 
+.sidebar {
+  vertical-align: top;
+  width: 25vw;
+  padding: 5%;
+}
 .card{
+  height: 250px;
+  width: 300px;
+  box-shadow: 10px 10px 10px #999999;
+  border-radius: 20px;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+  transition: 0.5s all ease-in-out;
+  background: #ffff;
+}
+
+/* .card:hover {
+  border-radius: 20px;
+      transform: scale(1.2);
+      box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+      z-index: 3;
+  } */
+
+/* .card:hover .img {
+opacity: 0.5;
+} */
+
+.overlay:hover {
+opacity: 1;
+}
+
+/* .card:hover .overlay * {
+  padding-top: 15px;
+} */
+
+
+.img{
+  /* height: 250px;
+  width: 100%; */
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  opacity: 1;
+  width: 100%;
+height: auto;
+}
+.overlay{
+  position: absolute;
+  margin: 0;
+top: 0;
+bottom: 0;
+left: 0;
+ right: 0;
+height: 100%;
+width: 100%;
+border-radius: 20px;
+opacity: 0;
+transition: .5s ease;
+background-color: #fff;
+}
+
+/* .card{
     height: 250px;
     width: 210px;
     box-shadow: 10px 10px 10px #999999;
@@ -24,18 +85,18 @@ ul {
 .card:hover{
   margin-top:-10px;
   margin-bottom: 10px;
-}
+} */
 
-.img{
+/* .img{
     height: 125px;
     width: 100%;
     object-fit: cover;
     border-radius: 20px 20px 0 0;
-}
+} */
 
 li {
     float: left;
-    padding-right: 30px;
+    padding: 25px;
   }
 
 button {
@@ -49,3 +110,6 @@ button {
     border: none;
   }
 
+table{
+  align-items: center;
+}

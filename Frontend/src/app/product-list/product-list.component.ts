@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getProducts();
   }
 
+  searchProducts() {
+    console.log((<HTMLInputElement>document.getElementById("search")).value);
+    this.api.searchProducts((<HTMLInputElement>document.getElementById("search")).value);
+  }
 }

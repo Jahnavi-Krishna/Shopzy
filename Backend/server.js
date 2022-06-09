@@ -222,4 +222,23 @@ app.get('/feedback/all', async (req,res) => {
     }
 })
 
+app.post('/deleteProduct/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {productId} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+        console.log(productId);
+            await db.collection('Product').deleteOne({_id: new mongodb.ObjectId(productId)});
+            res.json({
+                msg: "1 Product Deleted"
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})
+  
+
 app.listen(3000,() => { console.log('Server running...');})
