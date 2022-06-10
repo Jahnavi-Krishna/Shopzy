@@ -6,8 +6,8 @@
         <td class="sidebar">
             <tr>Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()" /></tr>
             <tr>Sort by price :<br>
-                <input name="sort" type="radio" (input)="this.api.sortProducts(true)">Increasing <br>
-                <input name="sort" type="radio" (input)="this.api.sortProducts(false)">Decreasing
+                <input name="sort" type="radio" (input)="this.api.sortProducts(true)">Low to High <br>
+                <input name="sort" type="radio" (input)="this.api.sortProducts(false)">High to Low
             </tr>
             <tr>Filter by category :<br>
                 <div *ngFor="let category of this.api.category">

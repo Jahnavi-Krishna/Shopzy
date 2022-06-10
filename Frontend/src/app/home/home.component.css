@@ -3,7 +3,7 @@
     background: -moz-linear-gradient(-45deg, #69d2e7 0%, #a7dbd8 25%, #e0e4cc 46%, #e0e4cc 54%, #f38630 75%, #fa6900 100%);
     background: -webkit-linear-gradient(-45deg, #69d2e7 0%,#a7dbd8 25%,#e0e4cc 46%,#e0e4cc 54%,#f38630 75%,#fa6900 100%);
     background: linear-gradient(135deg, #69d2e7 0%,#a7dbd8 25%,#e0e4cc 46%,#e0e4cc 54%,#f38630 75%,#fa6900 100%);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 ul {
@@ -16,7 +16,7 @@ ul {
   padding: 5%;
 }
 .card{
-  height: 250px;
+  height: 300px;
   width: 300px;
   box-shadow: 10px 10px 10px #999999;
   border-radius: 20px;
@@ -38,9 +38,6 @@ ul {
 opacity: 0.5;
 } */
 
-.overlay:hover {
-opacity: 1;
-}
 
 /* .card:hover .overlay * {
   padding-top: 15px;
@@ -48,29 +45,37 @@ opacity: 1;
 
 
 .img{
-  /* height: 250px;
-  width: 100%; */
+  height: 250px;
+  width: 100%;
   object-fit: cover;
   border-radius: 20px 20px 0 0;
   opacity: 1;
-  width: 100%;
-height: auto;
+  /* width: 100%;
+  height: auto; */
 }
 .overlay{
   position: absolute;
   margin: 0;
-top: 0;
-bottom: 0;
-left: 0;
- right: 0;
-height: 100%;
-width: 100%;
-border-radius: 20px;
-opacity: 0;
-transition: .5s ease;
-background-color: #fff;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #fff;
+  z-index: -1;
 }
 
+.overlay:hover {
+opacity: 1;
+  /* padding-top: 30px; */
+  padding: 20px 30px;
+  width: 240px;
+  height: 253px;
+}
 /* .card{
     height: 250px;
     width: 210px;

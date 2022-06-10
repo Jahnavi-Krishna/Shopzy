@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 
-#cardTop > li{
+.cardTop > li{
     display:inline-block;
 }
 

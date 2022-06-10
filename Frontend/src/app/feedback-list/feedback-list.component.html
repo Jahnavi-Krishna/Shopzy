@@ -1,7 +1,8 @@
 <h2>User Feedback</h2>
 <hr>
+Search<input type="text" id="searchUser" placeholder="Search..." (input)="searchFeedbacks()"/><br>
 <div class="feedback">
-    <div class="user" *ngFor="let user of feedback">
+    <div class="user" *ngFor="let user of this.api.feedbacks">
         <ul class="card" style="list-style-type: none;">
             <!-- <li><span><b>Name : </b></span></li> -->
             <li><span><b>Email : </b>{{ user.email }}</span></li>

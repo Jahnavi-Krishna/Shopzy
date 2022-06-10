@@ -239,6 +239,39 @@ app.post('/deleteProduct/in', async (req,res) => {
         client.close();
     }
 })
-  
+
+app.post('/addProduct/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {name, price, type, desc} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+            await db.collection('Product').insertOne({name: name, price: price, type: type, description: desc, image: "assets/products/dummy.png"});
+            res.json({
+                msg: "Product Created"
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})  
+
+app.post('/updateProduct/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {_id,name, price, type, desc} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+            await db.collection('Product').updateOne({_id: new mongodb.ObjectId(_id)},{$set:{name: name, price: price, type: type, description: desc}});
+            res.json({
+                msg: "Product Created"
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})  
 
 app.listen(3000,() => { console.log('Server running...');})

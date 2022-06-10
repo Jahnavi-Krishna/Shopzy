@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-feedback-list',
@@ -10,13 +11,13 @@ export class FeedbackListComponent implements OnInit {
 
   feedback: any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public api: ApiService) { }
 
   ngOnInit(): void {
-    this.http.get<any>("http://localhost:3000/feedback/all").subscribe((response) => {
-      console.log(response);
-      this.feedback = response.data;
-    });
+  }
+
+  searchFeedbacks() {
+    this.api.searchFeedbacks((<HTMLInputElement>document.getElementById("searchUser")).value);
   }
 
 }

@@ -1,20 +1,52 @@
 <h2>Products</h2>
 <hr>
-<button>+ Add</button> <br>
-Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()"/><br>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-        <tr *ngFor="let product of this.api.products">
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.type}}</td>
-            <td>{{product.description}}</td>
-            <td><button>Edit</button><button (click)="this.api.deleteProduct(product._id)">Delete</button></td>
-        </tr>
-    </table>
+<button (click)="newProduct()">+ Add</button><br>
+Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()" /><br>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let product of this.api.products">
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.type}}</td>
+        <td>{{product.description}}</td>
+        <td><button (click)="update(product)">Edit</button><button (click)="this.api.deleteProduct(product._id)">Delete</button></td>
+    </tr>
+</table>
+
+<div id="popup">
+    <div class="center">
+        <div class="card">
+            <ul class="cardTop">
+                <li><span><b>Product</b></span></li>
+                <li id="right"><button (click)="closeProduct()">X</button></li>
+            </ul>
+            <hr>
+            <table id="content">
+                <tr>
+                    <td>Product Name :</td>
+                    <td><input type="text" placeholder="Product Name" id="name"></td>
+                </tr>
+                <tr>
+                    <td>Price :</td>
+                    <td><input type="text" placeholder="Price" id="price"></td>
+                </tr>
+                <tr>
+                    <td> Category :</td>
+                    <td><input type="text" placeholder="Category" id="type"></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;"><span>Description : </span></td>
+                    <td><textarea name="name" id="name" cols="30" rows="5" placeholder="Product Description..."
+                            id="desc"></textarea></td>
+                </tr>
+            </table>
+            <button (click)="save()">Save</button>
+        </div>
+    </div>
+</div>

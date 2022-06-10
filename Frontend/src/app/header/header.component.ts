@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.api.getProducts();
     this.api.getItems();
+    this.api.getFeedbacks();
     if(localStorage.getItem('role') === 'ADMIN') {
       (<HTMLInputElement>document.getElementById("admin")).style.display = "block";
     }

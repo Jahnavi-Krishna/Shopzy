@@ -12,6 +12,8 @@ export class ApiService {
   public total: any;
   public count: any;
   public category: any = [];
+  public feedbacksAll: any;
+  public feedbacks: any;
 
   constructor(private http: HttpClient) { }
 
@@ -47,6 +49,14 @@ export class ApiService {
     });
   }
 
+  getFeedbacks():void {
+    this.http.get<any>("http://localhost:3000/feedback/all").subscribe((response) => {
+      console.log(response);
+      this.feedbacksAll = response.data;
+      this.feedbacks = this.feedbacksAll;
+    });
+  }
+
   addToCart(productId: string): void {
     this.http.post<any>("http://localhost:3000/add-to-cart/in", { email: localStorage.getItem("userEmail"), productId: productId }, { headers: { 'Content-Type': "application/json" } }).subscribe((response) => {
       console.log(response);
@@ -69,6 +79,9 @@ export class ApiService {
   }
 
   getProduct(productId: string) {
+    if(this.productsAll == null){
+      return "None";
+    }
     for (var i = 0; i < this.productsAll.length; i++) {
       if (this.productsAll[i]._id === productId) {
         return this.productsAll[i];
@@ -82,6 +95,15 @@ export class ApiService {
     for (var i = 0; i < this.productsAll.length; i++) {
       if ((this.productsAll[i].name.toLowerCase()).match(".*" + product.toLowerCase() + ".*")) {
         this.products.push(this.productsAll[i]);
+      }
+    }
+  }
+
+  searchFeedbacks(email: string) {
+    this.feedbacks = [];
+    for (var i = 0; i < this.feedbacksAll.length; i++) {
+      if ((this.feedbacksAll[i].email.toLowerCase()).match(".*" + email.toLowerCase() + ".*")) {
+        this.feedbacks.push(this.feedbacksAll[i]);
       }
     }
   }
@@ -120,4 +142,17 @@ export class ApiService {
       this.getProducts();
     });
   }
+
+  addProduct(name: string, price: string, type: string, desc: string){
+    this.http.post("http://localhost:3000/addProduct/in", {name: name, price: price, type: type, desc: desc}, {headers: {'Content-Type': 'application/json'}}).subscribe((respons)=>{
+      this.getProducts();
+    })
+  }
+
+  updateProduct(productId:string,name: string, price: string, type: string, desc: string){
+    this.http.post("http://localhost:3000/updateProduct/in", {_id: productId, name: name, price: price, type: type, desc: desc}, {headers: {'Content-Type': 'application/json'}}).subscribe((respons)=>{
+      this.getProducts();
+    })
+  }
+
 }

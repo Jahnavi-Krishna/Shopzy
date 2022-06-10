@@ -2,10 +2,11 @@
   color: #fa6900;
 }
 
-.feedback-img{
+.feedbackImg{
     width: 12%;
     position: fixed;
     bottom: 0;
+    cursor: pointer;
 }
 /* #feedback-con{
     position: fixed;
