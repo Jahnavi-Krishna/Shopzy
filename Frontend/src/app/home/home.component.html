@@ -1,15 +1,15 @@
-<div id="bgd">
+<div id="gradient">
     <div style="height:50px">
         <app-header></app-header>
     </div>
     <table>
         <td class="sidebar">
-            <tr>Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()" /></tr>
-            <tr>Sort by price :<br>
+            <tr><input type="text" id="search" placeholder="Search..." (input)="searchProducts()" /></tr>
+            <tr><h3>Sort by price :</h3>
                 <input name="sort" type="radio" (input)="this.api.sortProducts(true)">Low to High <br>
                 <input name="sort" type="radio" (input)="this.api.sortProducts(false)">High to Low
-            </tr>
-            <tr>Filter by category :<br>
+            </tr> <br>
+            <tr><h3>Filter by category :</h3>
                 <div *ngFor="let category of this.api.category">
                     <input name="filter" type="checkbox" (change)="filter(category, $any($event.target).checked)">{{category}}<br>
                 </div>
@@ -32,6 +32,9 @@
                         <button (click)="this.api.addToCart(product._id)">Add to Cart</button>
                     </div>
                 </li> -->
+                <div class="poster">
+
+                </div>
                 <li class="products" *ngFor="let product of this.api.products">
                     <div class="card" id="card-{{product._id}}" (mouseenter)="hoverOn(product._id)" (mouseleave)="hoverOff(product._id)">
                         <img src="{{product.image}}" class="img"/>

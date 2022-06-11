@@ -14,6 +14,7 @@ export class ApiService {
   public category: any = [];
   public feedbacksAll: any;
   public feedbacks: any;
+  public orders: any;
 
   constructor(private http: HttpClient) { }
 
@@ -38,8 +39,10 @@ export class ApiService {
 
   getItems() {
     this.http.post<any>("http://localhost:3000/cart/in", { email: localStorage.getItem("userEmail") }, { headers: { 'Content-Type': "application/json" } }).subscribe((response) => {
-      console.log(response.items);
-      this.items = response.items;
+      if (response == null) {
+        this.items = [];
+      }
+      else { this.items = response.items; }
       this.total = 0;
       this.count = 0;
       for (var i = 0; i < this.items.length; i++) {
@@ -49,7 +52,7 @@ export class ApiService {
     });
   }
 
-  getFeedbacks():void {
+  getFeedbacks(): void {
     this.http.get<any>("http://localhost:3000/feedback/all").subscribe((response) => {
       console.log(response);
       this.feedbacksAll = response.data;
@@ -79,7 +82,7 @@ export class ApiService {
   }
 
   getProduct(productId: string) {
-    if(this.productsAll == null){
+    if (this.productsAll == null) {
       return "None";
     }
     for (var i = 0; i < this.productsAll.length; i++) {
@@ -137,22 +140,34 @@ export class ApiService {
     }
   }
 
-  deleteProduct(productId: string){
-    this.http.post("http://localhost:3000/deleteProduct/in", {productId: productId}, {headers: {'Content-Type': 'application/json'}}).subscribe((respons)=>{
+  deleteProduct(productId: string) {
+    this.http.post("http://localhost:3000/deleteProduct/in", { productId: productId }, { headers: { 'Content-Type': 'application/json' } }).subscribe((respons) => {
       this.getProducts();
     });
   }
 
-  addProduct(name: string, price: string, type: string, desc: string){
-    this.http.post("http://localhost:3000/addProduct/in", {name: name, price: price, type: type, desc: desc}, {headers: {'Content-Type': 'application/json'}}).subscribe((respons)=>{
+  addProduct(name: string, price: string, type: string, desc: string) {
+    this.http.post("http://localhost:3000/addProduct/in", { name: name, price: price, type: type, desc: desc }, { headers: { 'Content-Type': 'application/json' } }).subscribe((respons) => {
       this.getProducts();
     })
   }
 
-  updateProduct(productId:string,name: string, price: string, type: string, desc: string){
-    this.http.post("http://localhost:3000/updateProduct/in", {_id: productId, name: name, price: price, type: type, desc: desc}, {headers: {'Content-Type': 'application/json'}}).subscribe((respons)=>{
+  updateProduct(productId: string, name: string, price: string, type: string, desc: string) {
+    this.http.post("http://localhost:3000/updateProduct/in", { _id: productId, name: name, price: price, type: type, desc: desc }, { headers: { 'Content-Type': 'application/json' } }).subscribe((respons) => {
       this.getProducts();
     })
   }
 
+  checkout() {
+    this.http.post("http://localhost:3000/createOrder/in", { email: localStorage.getItem('userEmail') }, { headers: { 'Content-Type': 'application/json' } }).subscribe((responses) => {
+      this.getItems();
+    })
+  }
+
+  getOrders() {
+    this.http.post<any>("http://localhost:3000/showOrders/in", {}, { headers: { 'Content-Type': 'application/json' } }).subscribe((response) => {
+      console.log(response.data);
+      this.orders = response.data;
+    })
+  }
 }

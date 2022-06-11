@@ -1,36 +1,44 @@
-.center{
+.center {
     padding-top: calc(50vh - 200px);
     padding-left: calc(50vw - 200px);
 }
 
-.card{
+.card {
     background-color: #fff;
     height: 400px;
     width: 400px;
-    border-radius:20px;
+    border-radius: 20px;
     padding: 3%;
 }
 
-.cardTop{
-    list-style-type: none; 
+.cardTop {
+    list-style-type: none;
     overflow: hidden;
 }
 
-.cardTop > li{
-    display:inline-block;
+.cardTop>li {
+    display: inline-block;
 }
 
-#right{
-    float:right;
+#right {
+    float: right;
 }
 
-.deleteItem{
+.deleteItem {
     border-radius: 5px;
     background-color: red;
     color: white;
-    border-box: none;
+    /* border-box: none; */
 }
 
-#checkout{
-    float:right;
+#checkout {
+    float: right;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 50px;
+    background: #1f75c4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
 }

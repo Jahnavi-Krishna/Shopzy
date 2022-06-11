@@ -274,4 +274,39 @@ app.post('/updateProduct/in', async (req,res) => {
     }
 })  
 
+app.post('/createOrder/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    const {email} = req.body;
+    try{
+        let db = await client.db('Shopzy');
+            var q = await db.collection('Cart').findOne({email: email}); 
+            await db.collection('Order').insertOne({email : q["email"], items: q["items"]}); 
+            await db.collection('Cart').deleteOne({email: email});
+            res.json({
+                msg: "Order Created"
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+})  
+
+app.post('/showOrders/in', async (req,res) => {
+    const client = await mongoClient.connect(dburl);
+    try{
+        let db = await client.db('Shopzy');
+        var data = await db.collection('Order').find().toArray();
+            res.json({
+                data
+            });
+        
+    }catch(err){
+        console.log(err);
+    }finally{
+        client.close();
+    }
+}) 
+
 app.listen(3000,() => { console.log('Server running...');})

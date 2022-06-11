@@ -17,6 +17,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { AdminComponent } from './admin/admin.component';
 import { FeedbackListComponent } from './feedback-list/feedback-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     FeedbackComponent,
     AdminComponent,
     FeedbackListComponent,
-    ProductListComponent
+    ProductListComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<h2>Orders</h2>
+<hr>
+<table>
+    <tr>
+        <th>Customer Email</th>
+        <th>Products</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total Price</th>
+    </tr>
+    <tr *ngFor="let order of this.api.orders">
+        <td>{{order.email}}</td>
+        <td>
+            <div *ngFor="let item of order.items">
+                <span>{{this.api.getProduct(item.productId).name}}</span><br>
+            </div>
+        </td>
+        <td>
+            <div *ngFor="let item of order.items">
+                <span>({{item.count}})</span><br>
+            </div>
+        </td>
+        <td>
+            <div *ngFor="let item of order.items">
+                <span>{{this.api.getProduct(item.productId).price}}</span><br>
+            </div>
+        </td>
+        <td>
+            {{totalPrice(order.items)}}
+        </td>
+    </tr>
+</table>

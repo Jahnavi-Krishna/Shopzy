@@ -13,17 +13,25 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+    showProducts() {
+      (<HTMLInputElement>document.getElementById("products")).style.display = "block";
+      (<HTMLInputElement>document.getElementById("feedbacks")).style.display = "none";
+      (<HTMLInputElement>document.getElementById("orders")).style.display = "none";
+    }
 
   showFeedback() {
     (<HTMLInputElement>document.getElementById("products")).style.display = "none";
     (<HTMLInputElement>document.getElementById("feedbacks")).style.display = "block";
+    (<HTMLInputElement>document.getElementById("orders")).style.display = "none";
     // this.http.get<any>("http://localhost:3000/feedback/all").subscribe((response) => {
     //   console.log(response);
     // });
   }
 
-  showProducts() {
-    (<HTMLInputElement>document.getElementById("products")).style.display = "block";
+  showOrders(){
+    (<HTMLInputElement>document.getElementById("products")).style.display = "none";
     (<HTMLInputElement>document.getElementById("feedbacks")).style.display = "none";
+    (<HTMLInputElement>document.getElementById("orders")).style.display = "block";
   }
 }

@@ -3,8 +3,9 @@
 <div class="sidebar">
     <a (click)="showProducts()">Products</a>
     <hr>
-    <a (click)="showFeedback()">Feedback</a>
+    <a (click)="showOrders()">Orders</a>
     <hr>
+    <a (click)="showFeedback()">Feedback</a>
 </div>
 
 <div class="content">
@@ -12,6 +13,7 @@
     <hr style="border-top: 2px solid black;">
     <div class="main">
         <div id="products" style="display: block"><app-product-list></app-product-list></div>
+        <div id="orders" style="display: none"><app-orders></app-orders></div>
         <div id="feedbacks" style="display: none"><app-feedback-list></app-feedback-list></div>
     </div>
 </div>

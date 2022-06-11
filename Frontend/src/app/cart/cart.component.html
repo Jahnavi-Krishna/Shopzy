@@ -7,16 +7,16 @@
         <hr>
         <div class="items">
             <div class="item" *ngFor="let item of this.api.items">
-                <span>{{this.api.getProduct(item.productId).name}}   </span>
+                <span>{{this.api.getProduct(item.productId).name}}</span>
                 <span>(Rs.{{this.api.getProduct(item.productId).price}}) </span>
-                <span><button (click)="this.api.addToCart(item.productId)">+</button>    {{item.count}}  <button (click)="this.api.subtractFromCart(item.productId)">-</button>   </span>
-                <span><button class="deleteItem" (click)="this.api.removeFromCart(item.productId)">X</button>     </span>
+                <span><button (click)="this.api.addToCart(item.productId)">+</button>{{item.count}}<button (click)="this.api.subtractFromCart(item.productId)">-</button></span>
+                <span><button class="deleteItem" (click)="this.api.removeFromCart(item.productId)">X</button></span>
                 <span>Rs.{{this.api.getProduct(item.productId).price * item.count}}</span>
                 <hr>
             </div>
         </div>
         <span><b>Total Price: Rs.{{this.api.total}}</b></span>
-        <hr>
-        <button id="checkout">Checkout</button>
+        <!-- <hr> -->
+        <button id="checkout" (click)="this.api.checkout()">Checkout</button>
     </div>
 </div>
