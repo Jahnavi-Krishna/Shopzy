@@ -1,0 +1,42 @@
+/* th, td {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    text-align: center;
+    padding: 10px;
+  }
+
+table {
+    margin: 10px;
+    border: 1px solid;
+    margin-right: auto;
+    margin-left: auto;
+} */
+h2{
+    text-align: center;
+}
+
+th, td {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    /* text-align: center; */
+    padding: 10px;
+  }
+
+tr:nth-child(odd) {
+    background-color: #D6EEEE;
+  }
+
+tr:nth-child(even) {
+    background-color: #ffff;
+  }
+
+th{
+      background-color: #035397;
+      color: #fff;
+  }
+
+  table{
+    border: 1px solid;
+    margin-right: auto;
+    margin-left: auto;
+  }

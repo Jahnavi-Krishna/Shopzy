@@ -2,21 +2,20 @@
     <div class="card">
         <ul class="cardTop">
             <li><span><b>My Cart</b></span></li>
-            <li id="right"><button (click)="close()">X</button></li>
+            <li id="right"><button (click)="close()" id="close">X</button></li>
         </ul>
         <hr>
-        <div class="items">
-            <div class="item" *ngFor="let item of this.api.items">
-                <span>{{this.api.getProduct(item.productId).name}}</span>
-                <span>(Rs.{{this.api.getProduct(item.productId).price}}) </span>
-                <span><button (click)="this.api.addToCart(item.productId)">+</button>{{item.count}}<button (click)="this.api.subtractFromCart(item.productId)">-</button></span>
-                <span><button class="deleteItem" (click)="this.api.removeFromCart(item.productId)">X</button></span>
-                <span>Rs.{{this.api.getProduct(item.productId).price * item.count}}</span>
-                <hr>
-            </div>
-        </div>
+        <table class="items">
+            <tr class="item" *ngFor="let item of this.api.items">
+                <td><span>{{this.api.getProduct(item.productId).name}}</span></td>
+                <td><span class="right">Rs.{{this.api.getProduct(item.productId).price * item.count}}</span></td>
+                <td><span class="right"><button class="deleteItem" (click)="this.api.removeFromCart(item.productId)">X</button></span></td>
+                <td><span id="box" class="right"><button (click)="this.api.addToCart(item.productId)">+</button><span style="padding:15px;">{{item.count}}</span><button (click)="this.api.subtractFromCart(item.productId)">-</button></span></td>
+                <td><span class="right">(Rs.{{this.api.getProduct(item.productId).price}}) </span></td>
+            </tr>
+        </table>
+        <br>
         <span><b>Total Price: Rs.{{this.api.total}}</b></span>
-        <!-- <hr> -->
         <button id="checkout" (click)="this.api.checkout()">Checkout</button>
     </div>
 </div>

@@ -1,8 +1,8 @@
 <h2>Products</h2>
 <hr>
-<button (click)="newProduct()">+ Add</button><br>
-Search<input type="text" id="search" placeholder="Search..." (input)="searchProducts()" /><br>
-<table>
+<button (click)="newProduct()" id="btn">+ Add Product</button>
+<input type="text" id="search" placeholder="Search Product..." (input)="searchProducts()" /><br><br>
+<table id="products">
     <tr>
         <th>Name</th>
         <th>Price</th>
@@ -45,7 +45,7 @@ Search<input type="text" id="search" placeholder="Search..." (input)="searchProd
                     <td><textarea name="name" id="name" cols="30" rows="5" placeholder="Product Description..."
                             id="desc"></textarea></td>
                 </tr>
-            </table>
+            </table><br>
             <button (click)="save()">Save</button>
         </div>
     </div>

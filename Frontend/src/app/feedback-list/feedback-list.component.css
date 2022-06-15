@@ -1,0 +1,55 @@
+h2{
+    text-align: center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+h2,
+#searchUser {
+    margin-left: 5%;
+}
+
+.feedback {
+    margin-left: 2%;
+}
+
+#searchUser {
+    border: 2px solid orange;
+    width: 200px;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    /* float: right; */
+}
+
+b {
+    color: #396EB0;
+}
+input{
+    float: right;
+    margin-right: 40%;
+}
+/* hr {
+    border-top: 1px solid;
+} */
+
+table{
+    border: 2px solid #396EB0;
+    margin: 10px;
+    color: rgb(97, 93, 93);
+}
+
+td{
+    padding: 10px;
+}
+
+tr:nth-child(odd) {
+    background-color: #D6EEEE;
+  }
+
+tr:nth-child(even) {
+    background-color: #ffff;
+  }

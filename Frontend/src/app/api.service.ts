@@ -114,7 +114,7 @@ export class ApiService {
   sortProducts(reverse: boolean) {
     for (var i = 0; i < this.products.length; i++) {
       for (var j = 0; j < this.products.length - 1; j++) {
-        if ((!reverse && this.products[j].price > this.products[j + 1].price) || (reverse && this.products[j].price < this.products[j + 1].price)) {
+        if ((!reverse && parseInt(this.products[j].price) > parseInt(this.products[j + 1].price)) || (reverse && parseInt(this.products[j].price) < parseInt(this.products[j + 1].price))) {
           var t = this.products[j];
           this.products[j] = this.products[j + 1];
           this.products[j + 1] = t;
@@ -124,6 +124,7 @@ export class ApiService {
   }
 
   filterProducts(type: any) {
+    console.log(type);
     if (type.length == 0) {
       this.products = this.productsAll;
     }
@@ -137,6 +138,7 @@ export class ApiService {
         }
       }
       this.products = temp;
+      console.log(this.products);
     }
   }
 
@@ -161,6 +163,7 @@ export class ApiService {
   checkout() {
     this.http.post("http://localhost:3000/createOrder/in", { email: localStorage.getItem('userEmail') }, { headers: { 'Content-Type': 'application/json' } }).subscribe((responses) => {
       this.getItems();
+      alert('Ordered');
     })
   }
 
@@ -169,5 +172,9 @@ export class ApiService {
       console.log(response.data);
       this.orders = response.data;
     })
+  }
+
+  clearProducts() {
+    this.products = this.productsAll;
   }
 }

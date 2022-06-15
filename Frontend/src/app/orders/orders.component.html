@@ -1,5 +1,4 @@
 <h2>Orders</h2>
-<hr>
 <table>
     <tr>
         <th>Customer Email</th>
@@ -17,7 +16,7 @@
         </td>
         <td>
             <div *ngFor="let item of order.items">
-                <span>({{item.count}})</span><br>
+                <span>{{item.count}}</span><br>
             </div>
         </td>
         <td>

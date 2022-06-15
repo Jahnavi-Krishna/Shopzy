@@ -6,9 +6,10 @@
 .card {
     background-color: #fff;
     height: 400px;
-    width: 400px;
+    width: 450px;
     border-radius: 20px;
     padding: 3%;
+  font-family: "Helvetica Neue",Helvetica,Arial;
 }
 
 .cardTop {
@@ -41,4 +42,24 @@
     font-weight: bold;
     cursor: pointer;
     border: none;
+}
+
+#box{
+    border: 0.5px solid black;
+}
+
+.right{
+    float: right;
+    margin-left: 8px;
+}
+
+.item td, .item th{
+    border-bottom: 1px solid #c3c3c3;
+}
+
+#close{
+    background: red;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
 }
