@@ -3,8 +3,6 @@ h2, #btn{
 }
 
 .card{
-    /* height: 380px; */
-    /* width: 300px; */
     box-shadow: 10px 10px 10px #999999;
     border-radius: 20px;
     margin: 20px;
@@ -94,7 +92,6 @@ button{
 th, td {
     border-bottom: 1px solid;
     border-right: 1px solid;
-    /* text-align: center; */
     padding: 10px;
   }
 

@@ -2,15 +2,6 @@
 <input type="text" id="searchUser" placeholder="Search User..." (input)="searchFeedbacks()" /><br><br>
 <div class="feedback">
     <div class="user" *ngFor="let user of this.api.feedbacks">
-        <!-- <ul class="card" style="list-style-type: none;">
-            <li><span><b>Email: </b>{{ user.email }}</span></li>
-            <li><span><b>Liked our website? </b>{{user.feedback.Liked}}</span></li>
-            <li><span><b>Features: </b>{{user.feedback.Points}}</span></li>
-            <li><span><b>Rating: </b>{{user.feedback.Ratings}}</span></li>
-            <li><span><b>Comments: </b>{{user.feedback.Message}}</span></li>
-            <li><span><b>Date & time: </b>{{user.feedback.DateTime}}</span></li>
-            <hr>
-        </ul> -->
         <table id="card" class="center" style="list-style-type: none;">
             <tr>
                 <td><b>Email </b></td>

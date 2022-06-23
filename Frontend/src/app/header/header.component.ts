@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
     this.api.getFeedbacks();
     if(localStorage.getItem('role') === 'ADMIN') {
       (<HTMLInputElement>document.getElementById("admin")).style.display = "block";
+      (<HTMLInputElement>document.getElementById("cart")).style.display = "none";
     }
   }
 

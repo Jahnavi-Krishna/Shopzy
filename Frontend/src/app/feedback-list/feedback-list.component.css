@@ -22,7 +22,6 @@ h2,
     border-radius: 20px;
     padding: 10px;
     text-align: center;
-    /* float: right; */
 }
 
 b {
@@ -32,9 +31,6 @@ input{
     float: right;
     margin-right: 40%;
 }
-/* hr {
-    border-top: 1px solid;
-} */
 
 table{
     border: 2px solid #396EB0;

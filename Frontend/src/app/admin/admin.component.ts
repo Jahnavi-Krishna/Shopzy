@@ -24,9 +24,6 @@ export class AdminComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("products")).style.display = "none";
     (<HTMLInputElement>document.getElementById("feedbacks")).style.display = "block";
     (<HTMLInputElement>document.getElementById("orders")).style.display = "none";
-    // this.http.get<any>("http://localhost:3000/feedback/all").subscribe((response) => {
-    //   console.log(response);
-    // });
   }
 
   showOrders(){

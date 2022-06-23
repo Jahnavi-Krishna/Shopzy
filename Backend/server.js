@@ -21,7 +21,6 @@ app.post('/login/in', async (req,res) => {
                 error: "Incorrect Email or Password!"
             })
         }else if(q['password'] === pwd){
-        // await db.collection('UserInfo').updateOne({username: q["username"]},{$inc : {login_count: 1}});
             res.json({
                 msg: "Success",
                 role : q["role"]

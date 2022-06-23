@@ -32,7 +32,6 @@
         <div class="imgcontainer">
             <h2 class="orange">Happy to hear that :)</h2>
             <h2 class="orange">What did you like the most in this webpage?</h2>
-            <!-- <h3 style="color: rgba(29, 29, 29, 0.6)">Help us improve your experience</h3> -->
             <span onclick="document.getElementById('pop02').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
         <div class="container" id="pop-con">
@@ -63,7 +62,6 @@
             </label>
     
             <div class="slidecontainer">
-              <!-- <h3>Rate us:</h3> -->
               <h3>Rating : <span id="rating-value-y">{{ rating }}</span></h3>
               <input type="range" min="1" max="10" value="5" class="slider-range" id="rating-y" (input)="changeRating()">
             </div>
@@ -79,7 +77,6 @@
         <div class="imgcontainer">
             <h2 class="orange">Sorry to hear that :(</h2>
             <h2 class="orange">What didn't you like in this webpage?</h2>
-            <!-- <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3> -->
             <span onclick="document.getElementById('pop04').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
         <div class="container" id="pop-con">
@@ -110,8 +107,6 @@
             </label>
     
             <div class="slidecontainer">
-            <!-- <h3>Rate us:</h3> -->
-            <!-- <h3>Rating : <span id="rating-value-y">{{ rating }}</span></h3> -->
             <h3>Rating: <span id="rating-y">{{ rating2 }}</span></h3>
             <input type="range" min="1" max="10" value="5" class="slider-range" id="rating-n" (input)="changeRating2()">
             </div>
@@ -126,13 +121,10 @@
     <form class="modal-content animate pop3" method="post">
       <div class="imgcontainer">
         <br>
-        <!-- <h3 style="color: rgba(0,0,0,0.6)">Help us improve your experience</h3> -->
         <h2 class="orange">What could we have done to make your experience better?</h2>
         <span onclick="document.getElementById('pop03').style.display='none'" class="close" title="Close Modal">&times;</span>
       </div>
       <div class="container feedtxt">
-        <h3>Name : </h3><textarea name="name" id="name" cols="64" rows="1" placeholder="Enter your Name"></textarea>
-        <br>
         <h3>Comments :</h3><textarea name="feedback-msg" id="feedback-msg" cols="64" rows="5" placeholder="Tell us your feedback"></textarea>
       </div>
       <div class="container">
